@@ -107,7 +107,10 @@ except:
 
 
 def extract_location_time(text: str):
-    doc = nlp(text)
+    if nlp:
+     doc = nlp(text)
+    else:
+     doc = text  # fallback
 
     location = None
     time_ref = None
