@@ -99,7 +99,11 @@ def extract_event_type(text: str):
 # Location & time extraction using spaCy
 # --------------------------------------------------
 import spacy
-nlp = spacy.load("en_core_web_sm")
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    print("⚠️ spaCy model not found, running without NLP")
+    nlp = None
 
 
 def extract_location_time(text: str):
